@@ -1,0 +1,35 @@
+<div class="container">
+    <h1 style="text-align: center">Task Manager</h1>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Task name</th>
+            <th>Task description</th>
+            <th>Status</th>
+            <th>Priority</th>
+            <th>&nbsp;&nbsp;</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td><input class="form-control" ng-model="task.name" required></td>
+            <td><input class="form-control" ng-model="task.description" required></td>
+            <td><input class="form-control" ng-model="task.status" required></td>
+            <td><input class="form-control" ng-model="task.priority" required></td>
+            <td><button class="btn btn-primary" ng-click="addTask(task)">Add Task</button></td>
+            <td><button class="btn btn-info" ng-click="updateTask(task)">Update Task</button></td>
+            <td><button class="btn btn-info" ng-click="deselect()">Clear Task</button></td>
+        </tr>
+        <tr ng-repeat="task in tasklist">
+            <td>{{task.taskName}}</td>
+            <td>{{task.taskDescription}}</td>
+            <td>{{task.taskStatus}}</td>
+            <td>{{task.taskPriority}}</td>
+            <td><button class="btn btn-danger" ng-click="deleteTask(task._id)">Remove Task</button></td>
+            <td><button class="btn btn-warning" ng-click="edit(contact.merchantId)">Edit Task</button></td>
+        </tr>
+        </tbody>
+    </table>
+  </div>

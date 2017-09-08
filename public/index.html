@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Task Manager</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="/js/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="/js/angular.min.js"></script>
+    <script type="text/javascript" src="/js/angular-ui-router.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular-ui-router/1.0.0-rc.1/angular-ui-router.min.js"></script>
+    <script src="/js/controller.js"></script>
+</head>
+<body>
+    <div ng-controller="taskCtrl">
+
+    <nav class="navbar" style="background:#2f3032">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="/" style="color: white" >Sanni Michael Tomiwa</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+            <li><a ui-sref="home" style="color:white"><i class="fa fa-home"></i> Home</a></li>
+            <li><a ui-sref="task" style="color:white"><i class="fa fa-shield"></i>Task Manager</a></li>
+            <li><a ui-sref="contact" style="color:white"><i class="fa fa-comment"></i>Bookmarker</a></li>
+            <li><a ui-sref="chat" style="color:white"><i class="fa fa-comment"></i> Message</a></li>
+        </ul>
+       </div>
+    </nav>
+
+
+<div id="main">
+
+    <!-- angular templating -->
+    <!-- this is where content will be injected -->
+    <div ui-view></div>
+
+</div>
+
+</div>
+
+</body>
+</html>
