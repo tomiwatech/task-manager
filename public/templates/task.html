@@ -14,10 +14,10 @@
         </thead>
         <tbody>
         <tr>
-            <td><input class="form-control" ng-model="task.name" required></td>
-            <td><input class="form-control" ng-model="task.description" required></td>
-            <td><input class="form-control" ng-model="task.status" required></td>
-            <td><input class="form-control" ng-model="task.priority" required></td>
+            <td><input class="form-control" ng-model="task.taskName" required></td>
+            <td><input class="form-control" ng-model="task.taskDescription" required></td>
+            <td><input class="form-control" ng-model="task.taskStatus" required></td>
+            <td><input class="form-control" ng-model="task.taskPriority" required></td>
             <td><button class="btn btn-primary" ng-click="addTask(task)">Add Task</button></td>
             <td><button class="btn btn-info" ng-click="updateTask(task)">Update Task</button></td>
             <td><button class="btn btn-info" ng-click="deselect()">Clear Task</button></td>
@@ -28,7 +28,7 @@
             <td>{{task.taskStatus}}</td>
             <td>{{task.taskPriority}}</td>
             <td><button class="btn btn-danger" ng-click="deleteTask(task._id)">Remove Task</button></td>
-            <td><button class="btn btn-warning" ng-click="edit(contact.merchantId)">Edit Task</button></td>
+            <td><button class="btn btn-warning" ng-click="edit(task._id)">Edit Task</button></td>
         </tr>
         </tbody>
     </table>

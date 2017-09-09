@@ -1,5 +1,5 @@
 var express = require('express');
-var TaskService = require('../services/user-service');
+var TaskService = require('../services/task-service');
 var router = express.Router();
 
 /* GET users listing. */
@@ -32,17 +32,18 @@ router.get('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
     var id = req.params.id;
     console.log(id);
-    TaskService.findUser(id, function (err, user) {
+    TaskService.findTask(id, function (err, task) {
         if(err){
             return res.json({
                 'responseCode': '03',
                 'responseMessage' : 'Error fetching user'
             });
-        }        if(user){
+        }
+        if(task){
             return res.json({
                 'responseCode': '00',
                 'responseMessage' : 'Successfully fetched users',
-                'user' : user
+                'task' : task
             });
         }        return res.json({
             'responseCode': '02',
@@ -54,7 +55,7 @@ router.get('/:id', function(req, res, next) {
 /* POST adds an new user. */
 router.post('/', function(req, res, next){
     var task = req.body;
-    console.log(task.name);
+    console.log(task.taskName);
     TaskService.addTask(task, function(err, tasks){
         if(err){
             return res.json({
@@ -80,9 +81,9 @@ router.post('/', function(req, res, next){
 
 /* POST updates a user's record. */
 router.post('/update', function(req, res, next){
-    var user = req.body;
-    console.log(user.merchantId);
-    TaskService.updateUser(user, function(err, users){
+    var task = req.body;
+    console.log(task.taskName);
+    TaskService.updateTask(task, function(err, tasks){
         if(err){
             return res.json({
                 'responseCode': '03',
@@ -90,7 +91,7 @@ router.post('/update', function(req, res, next){
             });
         }
 
-        if(users){
+        if(tasks){
             return res.json({
                 'responseCode': '00',
                 'responseMessage' : 'Successfully added user'

@@ -30,7 +30,7 @@ app.config(function($stateProvider,$urlRouterProvider){
             controller: 'contactController'
         })
 
-    $urlRouterProvider.otherwise('home');
+    $urlRouterProvider.otherwise('task');
 });
 
 app.controller('mainController',function($scope){
@@ -66,7 +66,7 @@ app.controller('taskCtrl',function($scope,$http){
 
     var refresh = function(){
 
-        $http.get('/users').then(function(response){
+        $http.get('/tasks').then(function(response){
 
             console.log(response);
 
@@ -84,7 +84,7 @@ app.controller('taskCtrl',function($scope,$http){
 // Add a new contact by posting to the server
 $scope.addTask = function(task){
 
-    $http.post('/users',task).then(function(response){
+    $http.post('/tasks',task).then(function(response){
         console.log(JSON.stringify(response));
         refresh();
     })
@@ -93,8 +93,7 @@ $scope.addTask = function(task){
 // Delete a contact from the database
 $scope.deleteTask = function(id){
     console.log(id);
-
-    $http.delete('/users/' +id).then(function(response){
+    $http.delete('/tasks/' +id).then(function(response){
         console.log(response);
         refresh();
     })
@@ -102,15 +101,16 @@ $scope.deleteTask = function(id){
 
 $scope.edit = function(id){
     console.log(id);
-    $http.get('/users/'+ id).then(function(response){
+    $http.get('/tasks/'+ id).then(function(response){
         console.log(response.data);
-        $scope.contact = response.data.user;
+        $scope.task = response.data.task;
     })
 }
 
-$scope.update = function(){
-    console.log($scope.contact.merchantId);
-    $http.post('/users/update/',$scope.contact).then(function(response){
+$scope.updateTask = function(task){
+    console.log(task);
+    $http.post('/tasks/update/',task).then(function(response){
+        console.log(response);
         refresh();
     })
 }
